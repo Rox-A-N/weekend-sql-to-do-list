@@ -24,7 +24,7 @@ app.get( '/weekendToDo', function(req, res) {
     res.sendStatus(201);
 });
 
-app.post( '/weekendToDo', function(req, res) {
+app.post('/weekendToDo', function(req, res) {
     console.log( 'in the post request!', req.body);
     toDo.at(req.body);
     res.sendStatus(201);
