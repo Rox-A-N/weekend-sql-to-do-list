@@ -15,3 +15,17 @@ const port = 5001;
 app.listen(port, () => {
     console.log('listening on port ', port);
 });
+
+let toDo = [];
+
+app.get( '/weekendToDo', function(req, res) {
+    console.log('request for /weekendToDo was made');
+    res.send(toDo);
+    res.sendStatus(201);
+});
+
+app.post( '/weekendToDo', function(req, res) {
+    console.log( 'in the post request!', req.body);
+    toDo.at(req.body);
+    res.sendStatus(201);
+})
