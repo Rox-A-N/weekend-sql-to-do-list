@@ -10,21 +10,15 @@ app.use(bodyParser.json());
 // from the server/public folder
 app.use(express.static('server/public'));
 
+const toDoRouter = require('./routes/to_do_router');
+
+app.use('/weekendToDo', toDoRouter);
+
 // start express
 const port = 5001;
 app.listen(port, () => {
     console.log('listening on port ', port);
 });
 
-const toDo = [];
 
-app.get( '/weekendToDo', function(req, res) {
-    console.log('request for /weekendToDo was made');
-    res.send(toDo);
-});
 
-app.post('/weekendToDo', function(req, res) {
-    console.log( 'in the post request!', req.body);
-    toDo.push(req.body);
-    res.sendStatus(201);
-})

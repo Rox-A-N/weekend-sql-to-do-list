@@ -7,6 +7,10 @@ function readyNow() {
 } // end readyNow
 
 
+let newTask = {
+    addTask: ""
+}   // end newTask variable
+
 
 function getTasks() {
     console.log( 'in getTasks where we will be adding to our list!');
@@ -33,9 +37,6 @@ function getTasks() {
     })
 } // end getTasks
 
-let newTask = {
-    addTask: ""
-}
 
 
 function postTask() {
