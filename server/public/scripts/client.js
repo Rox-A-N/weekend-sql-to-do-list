@@ -3,7 +3,9 @@ $(readyNow);
 function readyNow() {
     getTasks(); // on page load, this is a GET request
     $('#submit').on('click', postTask);
+    
 } // end readyNow
+
 
 
 function getTasks() {
@@ -17,13 +19,13 @@ function getTasks() {
         // append data to the DOM
         for (let i = 0; i < response.length; i++) {
             $('#tasksTableBody').append(`
-                <tr data-id=${response[i].id}>
-                    <td>${response[i].task}</td>
-                    <td>${response[i].complete}</td>
-                    <td>${response[i].delete}</td>
+                <tr class= "table-row">
+                    <td>${response[i].addTask}</td> 
                     <td>
-                        <button class="complete">Complete</button>
-                        <button class="delete">Delete</button>
+                        <button>Complete</button>
+                    </td>                 
+                    <td>
+                        <button>Delete</button>
                     </td>
                 </tr>
             `)
@@ -31,8 +33,32 @@ function getTasks() {
     })
 } // end getTasks
 
+let newTask = {
+    addTask: ""
+}
+
 
 function postTask() {
+    let input = $('#add-task').val();
+
+    newTask.addTask = input;
+
     console.log( 'inside postTask ');
-    
+    $.ajax({
+        method: 'POST',
+        url: '/weekendToDo',
+        data: newTask
+    }).then(function(response){
+        console.log('response to POST request ', response);
+        getTasks();
+    }).catch(function(error){
+        console.log(error);
+    });
+    clearTaskInput();
 } // end postTask
+
+
+function clearTaskInput() {
+    console.log('in the clearTaskInput');
+    $('#add-task').val('');
+}   // end clearTaskInput

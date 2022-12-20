@@ -1,7 +1,29 @@
 body{
-    margin: 50px;
+    max-width: 500px;
+    margin: auto;
+    background: linear-gradient(to right, #68EACC 0%, #497BE8 100%);
+    
 }
-/* #tableWrapper, #tableWrapper td{
+#tableWrapper, #tableWrapper td{
     border: 1px solid black;
     border-collapse: collapse;
-    padding: 10px; */
+    padding: 10px;
+}
+
+thead{
+    background-color: aliceblue;
+}
+
+.complete{
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+.table-row{
+    background-color: lightgray;
+}
+
+h2{
+    
+}
