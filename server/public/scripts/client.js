@@ -50,16 +50,12 @@ function postTask() {
         url: '/weekendToDo',
         data: newTask
     }).then(function(response){
+        $('#add-task').val('');
         console.log('response to POST request ', response);
         getTasks();
     }).catch(function(error){
         console.log(error);
     });
-    clearTaskInput();
 } // end postTask
 
 
-function clearTaskInput() {
-    console.log('in the clearTaskInput');
-    $('#add-task').val('');
-}   // end clearTaskInput
